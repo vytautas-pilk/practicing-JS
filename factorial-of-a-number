@@ -1,0 +1,8 @@
+function factorialize(num) {
+  // I use a loop to build an array with numbers in a range (1 - num) and use it to factorialize a given number
+  let arr = [];
+  for (let x = 1; x <= num; x++) arr.push(x);
+  return num <= 0 ? num = 1 : arr.reduce((x, y) => x * y);
+}
+
+factorialize(3);
