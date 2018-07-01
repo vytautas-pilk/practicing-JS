@@ -1,5 +1,5 @@
 function findLongestWordLength(str) {
-  // first I split the string into an array of words it contains. Splits using a regex to match non-alphanumeric characters
+  // Splits using a regex to match non-alphanumeric characters instead of a single character
   let strArray = str.split(/\W/), longestStr = "";
   for (let word of strArray) {
     if (word.length > longestStr.length) longestStr = word;
