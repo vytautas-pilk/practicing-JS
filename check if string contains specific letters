@@ -1,0 +1,11 @@
+/*  This one checks if a string in the first element of the array 
+    contains all the letters that are in the second element (a string)
+    and returns true in that scenario  */
+
+function mutation(arr) {
+  // 1) convert a second string into array of letters and transform them to lowercase;
+  // 2) call every() function on that array to check if all the letters are in the first array
+  return [...arr[1].toLowerCase()].every(letter => arr[0].toLowerCase().indexOf(letter) != -1);
+}
+
+mutation(["hello", "hey"]);
