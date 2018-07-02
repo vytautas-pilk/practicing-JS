@@ -1,0 +1,10 @@
+function frankenSplice(arr1, arr2, n) {
+  /* this function inserts first array elements to the second array in order
+     starting at index n of the arr2. Original arrays are not
+     changed in any way */
+  let copyArr2 = arr2.slice(); // make a copy of the array
+  copyArr2.splice(n, 0, ...arr1); // use of spread operator to insert arr1 elements easily
+  return copyArr2;
+}
+
+frankenSplice([1, 2, 3], [4, 5, 6], 1);
