@@ -1,0 +1,18 @@
+function sumAll(arr) {
+
+  // takes an array of two integers and produces a range of numbers
+  // between the two of them and returns the sum of those numbers
+  
+  "use strict"
+  let array = []; // to store a range of needed numbers
+  const [start, end] = arr;
+  if (start < end) {
+    for (let x = start; x <= end; x++) array.push(x);
+  } else {
+    for (let x = start; x >= end; x--) array.push(x);
+  }
+  return array.reduce((x, y) => x + y);
+}
+
+sumAll([1, 4]); // should return 10
+sumAll([1, 1]) // should return 1
