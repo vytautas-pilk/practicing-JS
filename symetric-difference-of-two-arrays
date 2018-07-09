@@ -1,0 +1,12 @@
+function diffArray(arr1, arr2) {
+  // compares two arrays and returns a new array with items 
+  // only found in one of the two, but not both
+  "use strict"
+
+  return [...arr1, ...arr2]
+    .filter(x => !(arr1.includes(x)) || !(arr2.includes(x)));
+    // merges two arrays using spread operator and
+    // a simple filter to leave just required elements
+}
+
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]); // returns [4]
