@@ -1,0 +1,11 @@
+function destroyer(arr) {
+  "use strict"
+  
+  // this function removes all elements from the initial array (first argument)
+  // that are of the same value as following arguments
+  // the number of those arguments is optional
+  
+  return arr.filter(x => !([...arguments].includes(x)));
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
