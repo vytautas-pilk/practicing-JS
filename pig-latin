@@ -1,0 +1,15 @@
+function translatePigLatin(str) {
+  // Translates an English word to Pig Latin.
+  "use strict"
+  // Create variables to be used:
+  let regex = /^[^aeiou]+/; // The beginning of the string doesn't start with one or more vowels
+
+  // Check if the string passes the regex test
+  // If it does, move them to the end of the string and add 'ay'
+  // Otherwise add 'way' to the end of the string
+  return regex.test(str) ? 
+    `${str.slice(str.match(regex).toString().length, ).concat(str.match(regex).toString())}ay` :
+    `${str}way`;
+}
+
+translatePigLatin("consonant");
