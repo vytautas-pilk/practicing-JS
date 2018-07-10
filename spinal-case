@@ -1,0 +1,9 @@
+function spinalCase(str) {
+  "use strict"
+
+  // A function takes a string and converts it to spinal case.
+  
+  return str.split(/\s+|_+|(?=[A-Z])/).join("-").toLowerCase();
+}
+
+spinalCase('This Is Spinal Tap');
