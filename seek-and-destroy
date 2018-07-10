@@ -1,5 +1,4 @@
 function destroyer(arr, ...arguments) {
-  "use strict"
   
   // This function removes all elements from the initial array (first argument)
   // that are of the same value as following arguments.
