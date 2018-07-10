@@ -1,0 +1,14 @@
+function myReplace(str, before, after) {
+  // Performs a search and replace on the sentence using the arguments provided and return the new sentence.
+  // First argument is the sentence to perform the search and replace on.
+  // Second argument is the word that will be replaced (before).
+  // Third argument is what will be replacing the second argument (after).
+  // The case of the first letter of (before) must be preserved when replacing.
+  let regex = /[A-Z]/;
+
+  return regex.test(before[0]) ?
+    str.replace(before, `${after[0].toUpperCase().concat(after.slice(1,))}`) :
+    str.replace(before, after);
+}
+
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
