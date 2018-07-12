@@ -1,0 +1,12 @@
+function pairElement(str) {
+  // This function takes a character in a provided string, 
+  // pairs it with its' missing element and returns a 2D array.
+  "use strict"
+  // Define an object with all pair possibilties
+  let pairs = {G: "C", C: "G", A: "T", T: "A"}
+  //  Split str into a char array and then replace every char with 
+  // a nested array with mapped pairs inside.
+  return str.split("").map(x => x = [x, pairs[x]]);
+}
+
+pairElement("GCG");
