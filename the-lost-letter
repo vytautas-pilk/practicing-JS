@@ -1,0 +1,24 @@
+function findTheLetter(str) {
+  // This function takes a string as an argument and returns 
+  // the missing letter in a chain. At the moment it only works
+  // with the single missing letter. It also had to be sorted if
+  // letters were not in order.
+  "use strict"
+  // Initialize needed variables
+  let current = str.charCodeAt(0);
+  let missingLetter;
+  // Check if the current UTF-16 code unit index in the array 
+  // corresponds with the one stored in the counter variable.
+  // If it doesn't, this is the unit that has to be returned as
+  // a string.
+  str.split("").map((letter, index) => {
+    if (str.charCodeAt(index) == current) {
+      current++;
+    } else {
+      missingLetter = String.fromCharCode(current);
+    }
+  })
+  return missingLetter;
+}
+
+fearNotLetter("abce");
