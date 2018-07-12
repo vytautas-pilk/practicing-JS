@@ -1,0 +1,15 @@
+function convertHTML(str) {
+  // This function convert characters '&', '<', '>', ' " ' and " ' "
+  // in a string to their corresponding HTML entities
+  let entities = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "\"": "&quot;",
+    "\'": "&apos;"
+  }
+
+  return str.split("").map(x => entities[x] || x).join("");
+}
+
+convertHTML("Dolce & Gabbana");
