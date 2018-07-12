@@ -1,0 +1,9 @@
+function uniteUnique(...args) {
+  // This function merges two or more arrays and returns a new array
+  // of unique values in the same order of original arrays
+  return args.reduce((x, y) => x.concat(y.filter(z => x.indexOf(z) == -1)));
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+// Note. This could be easily achieved with Set() and Array() conversions after flattening arrays.
