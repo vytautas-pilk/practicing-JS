@@ -21,4 +21,4 @@ function findTheLetter(str) {
   return missingLetter;
 }
 
-fearNotLetter("abce");
+findTheLetter("abce");
