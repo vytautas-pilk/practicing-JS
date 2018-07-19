@@ -1,0 +1,24 @@
+function smallestCommonMultiplier(arr) {
+  // Will return the smallest common multiplier of ALL numbers in a range 
+  // from array.
+  // Uses Euclidean algorithm as a helper f-tion to achieve this feat.
+  const min = Math.min(...arr);
+  const max = Math.max(...arr);
+  let scm;
+  for (let x = min; x < max; x++) {
+    if (x == min) scm = (x / gcd(x, x+1)) * (x+1);
+    else scm = (scm / gcd(scm, x+1)) * (x + 1);
+  }
+  return scm;
+  
+  function gcd(a, b) {
+    // Greatest common divisor
+    // Euclidean algorithm
+    if (b == 0) return a;
+    else return gcd(b, a % b);
+  }
+}
+
+
+smallestCommonMultiplier([1,5]); // 60
+smallestCommonMultiplier([47, 32]); // 32,830,600,182,700,320
