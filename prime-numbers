@@ -1,0 +1,22 @@
+function sumPrimes(num) {
+  // Function implements The Sieve of Eratosthenes
+  // to find and sum all prime numbers up to num
+  const sieve = [];
+  for (let x = 2; x <= num; x++) sieve[x] = true;
+  for (let x = 2; x <= Math.sqrt(num); x++) {
+    if (sieve[x]) {
+      for (let y = Math.pow(x, 2); y <= num; y += x) {
+        sieve[y] = false;
+      }
+    }
+  }
+  return sieve.reduce((primesArray, prime, index) => {
+    if (prime) {
+      primesArray.push(index);
+    }
+
+    return primesArray;
+  }, []).reduce((x, y) => x + y);
+}
+
+sumPrimes(11)
