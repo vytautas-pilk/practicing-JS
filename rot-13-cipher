@@ -1,0 +1,15 @@
+function rot13(str) {
+  // A ROT-13 cipher (Ceasars Cipher) function. Works both ways
+
+  // Make an array of ciphered ASCII chars 
+  let strArr = str.split("").map(x => 
+    /[A-Z]/.test(x) ? x.charCodeAt() % 26 + 65 :
+    x.charCodeAt()
+    );
+
+  // Return a converted array as a string
+  return String.fromCharCode(...strArr);
+}
+
+rot13("SERR PBQR PNZC");
+rot13("UV, UBJ NER LBH?");
