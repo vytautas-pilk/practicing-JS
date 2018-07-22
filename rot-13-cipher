@@ -1,7 +1,7 @@
 function rot13(str) {
   // A ROT-13 cipher (Ceasars Cipher) function. Works both ways
 
-  // Make an array of ciphered ASCII chars 
+  // Make an array of (de)ciphered ASCII chars 
   let strArr = str.split("").map(x => 
     /[A-Z]/.test(x) ? x.charCodeAt() % 26 + 65 :
     x.charCodeAt()
