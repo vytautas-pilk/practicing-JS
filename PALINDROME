@@ -1,0 +1,16 @@
+function palindrome(str) {
+  // This function returns true if a given string is a palindrome.
+
+  // First I made an array out of the string, 
+  // filtering all non-alphanumeric characters out.
+  let strArr = str.toLowerCase().split("").filter(x => !x.match(/\W|_/));
+  
+  // Then I just looked up the individual chars from the start
+  // to the middle of the string and compared them with chars 
+  // from the end.
+  return strArr.slice(0, strArr.length / 2).every((x, index, array) => 
+    array[index] === strArr[strArr.length - (1 + index)]
+    );
+}
+
+palindrome("racecar"); // true
