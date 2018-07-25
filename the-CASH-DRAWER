@@ -1,0 +1,73 @@
+function checkCashRegister(price, cash, cid) {
+  // An array of objects with value of each bill or coin.
+   const denomination = [
+    {name: "ONE HUNDRED", value: 100.00},
+    {name: "TWENTY", value: 20.00},
+    {name: "TEN", value: 10.00},
+    {name: "FIVE", value: 5.00},
+    {name: "ONE", value: 1.00},
+    {name: "QUARTER", value: 0.25},
+    {name: "DIME", value: 0.10},
+    {name: "NICKEL", value: 0.05},
+    {name: "PENNY", value: 0.01}
+  ];
+
+  let change = cash - price;
+
+  // Making an object from passed array to have a total cash value
+  // And total each bill/coin value
+  let cashAvailable =  cid.reduce((acca, current) => {
+    acca.totalCash += current[1];
+    acca[current[0]] = current[1];
+    return acca;
+  }, {totalCash: 0});
+
+  let result = {status: null, change: []};
+
+  // When change is exactly what's in a drawer
+  if (change == cashAvailable.totalCash) {
+    result.status = "CLOSED";
+    result.change = cid;
+    return result;
+  }
+  // When there is not enough change
+  if (change > cashAvailable.totalCash) {
+    result.status = "INSUFFICIENT_FUNDS";
+    return result;
+  }
+
+  // Builds an array of returned change
+  let changeDue = denomination.reduce((acca, current) => {
+    let toReturn = 0;
+    
+    // While there is still money of this kind left
+    // And while change is still more than the value of total of 
+    // that denomination. 
+    // ***To myself*** this problem is very similar to the number 
+    // conversion to Roman numeral problem
+    while (cashAvailable[current.name] > 0 && change >= current.value) {
+      change = Math.round((change - current.value) * 100) / 100;
+      cashAvailable[current.name] -= current.value;
+      toReturn += current.value;
+    }
+    if (toReturn > 0) {
+      acca.push([current.name, toReturn]);
+    }
+    // Return change
+    return acca;
+  }, [])
+  
+  // If there is nothing left in the drawer or we can't possibly
+  // return it, return this:
+  if (changeDue.length < 1 || change > 0) {
+    result.status = "INSUFFICIENT_FUNDS";
+    return result;
+  }
+
+  // Good evening
+  result.status = "OPEN";
+  result.change = changeDue;
+  return result;
+}
+
+checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
