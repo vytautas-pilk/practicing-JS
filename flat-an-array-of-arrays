@@ -1,8 +1,8 @@
 function flatThemAll(arr) {
   // I use recursive function with a new flattened array as an 
   // argument if that new array has nested arrays still
-  let flat = [].concat(...arr)
-  return arr.some(Array.isArray) ? steamrollArray(flat) : flat;
+  let flat = [].concat(...arr);
+  return arr.some(Array.isArray) ? flatThemAll(flat) : flat;
 }
 
 flatThemAll([1, [2], [3, [[4]]]]);
