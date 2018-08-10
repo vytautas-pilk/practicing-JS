@@ -1,7 +1,7 @@
 function convertHTML(str) {
   // This function convert characters '&', '<', '>', ' " ' and " ' "
   // in a string to their corresponding HTML entities
-  let entities = {
+  const entities = {
     "&": "&amp;",
     "<": "&lt;",
     ">": "&gt;",
@@ -12,4 +12,4 @@ function convertHTML(str) {
   return str.split("").map(x => entities[x] || x).join("");
 }
 
-convertHTML("Dolce & Gabbana");
+convertHTML("1 is always > than 0");
